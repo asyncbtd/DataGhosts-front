@@ -36,3 +36,146 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: #f4f6fb;
+  color: #222;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 32px 28px;
+  min-width: 320px;
+  max-width: 400px;
+  margin: 24px auto;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #2a3a5e;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border 0.2s;
+}
+input:focus {
+  border-color: #4f8cff;
+  outline: none;
+}
+
+button {
+  padding: 10px 0;
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #2563eb;
+}
+
+.navbar {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.locations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.locations-list li {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  transition: box-shadow 0.2s;
+}
+.locations-list li:hover {
+  box-shadow: 0 4px 16px rgba(79,140,255,0.08);
+}
+.locations-list a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+.locations-list a:hover {
+  text-decoration: underline;
+}
+
+.enemies-list {
+  list-style: none;
+  padding: 0;
+}
+.enemies-list li {
+  background: #f9fafb;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+}
+
+.status-message {
+  margin: 12px 0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+}
+.status-message.error {
+  background: #ffeaea;
+  color: #c0392b;
+  border: 1px solid #ffb3b3;
+}
+.status-message.success {
+  background: #eaffea;
+  color: #1e7d34;
+  border: 1px solid #b3ffb3;
+}
+
+.link {
+  color: #4f8cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.link:hover {
+  text-decoration: underline;
+}
