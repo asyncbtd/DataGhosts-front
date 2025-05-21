@@ -12,18 +12,20 @@ export default function LocationsPage() {
   }, []);
 
   return (
-    <div className="card">
-      <h2>Локации</h2>
-      {error && <div className="status-message error">{error}</div>}
-      <ul className="locations-list">
-        {locations.map(loc => (
-          <li key={loc.id}>
-            <a href="#" onClick={e => {e.preventDefault();navigate(`/locations/${loc.id}`);}}>
-              {loc.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="main-content">
+      <div className="card">
+        <h2>Локации</h2>
+        {error && <div className="status-message error">{error}</div>}
+        <ul className="locations-list">
+          {locations.map(loc => (
+            <li key={loc.id}>
+              <a href="#" onClick={e => {e.preventDefault();navigate(`/locations/${loc.id}`);}}>
+                {loc.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

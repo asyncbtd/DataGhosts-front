@@ -20,6 +20,7 @@ export async function login({ username, password }) {
   if (!res.ok) throw await res.json();
   const data = await res.json();
   localStorage.setItem('token', data.accessToken);
+  localStorage.setItem('username', username);
   return data;
 }
 
@@ -34,6 +35,7 @@ export async function logout() {
     body: JSON.stringify({ accessToken: token })
   });
   localStorage.removeItem('token');
+  localStorage.removeItem('username');
   if (!res.ok) throw await res.json();
   return await res.json();
 }

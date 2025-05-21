@@ -11,22 +11,24 @@ export default function LocationDetailPage() {
     getLocationById(id).then(setLocation).catch(err => setError(err.message || 'Ошибка загрузки'));
   }, [id]);
 
-  if (error) return <div className="status-message error">{error}</div>;
-  if (!location) return <div className="card">Загрузка...</div>;
+  if (error) return <div className="main-content"><div className="status-message error">{error}</div></div>;
+  if (!location) return <div className="main-content"><div className="card">Загрузка...</div></div>;
 
   return (
-    <div className="card">
-      <h2>{location.name}</h2>
-      <p>{location.comment}</p>
-      <h3>Враги:</h3>
-      <ul className="enemies-list">
-        {location.enemies && location.enemies.length > 0 ? location.enemies.map(e => (
-          <li key={e.id}>
-            <b>{e.name}</b> (уровень: {e.level}, здоровье: {e.health}, урон: {e.damage})<br/>
-            {e.comment}
-          </li>
-        )) : <li>Нет врагов</li>}
-      </ul>
+    <div className="main-content">
+      <div className="card">
+        <h2>{location.name}</h2>
+        <p>{location.comment}</p>
+        <h3>Враги:</h3>
+        <ul className="enemies-list">
+          {location.enemies && location.enemies.length > 0 ? location.enemies.map(e => (
+            <li key={e.id}>
+              <b>{e.name}</b> (уровень: {e.level}, здоровье: {e.health}, урон: {e.damage})<br/>
+              {e.comment}
+            </li>
+          )) : <li>Нет врагов</li>}
+        </ul>
+      </div>
     </div>
   );
 } 
