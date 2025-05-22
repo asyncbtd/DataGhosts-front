@@ -1,0 +1,157 @@
+:root {
+	// Color-tokens
+
+	// Brand
+	--brand_50: #f6fffd;
+	--brand_100: #d9e9e6;
+	--brand_200: #9cd7ce;
+	--brand_300: #5fe9d0;
+	--brand_500: #0cae95;
+	--brand_600: #089b84;
+	--brand_700: #078471;
+
+	// Neutral
+	--neutral_opacity-white: #ffffff80;
+	--neutral_0: #ffffff;
+	--neutral_50: #f9fafb;
+	--neutral_100: #f2f4f7;
+	--neutral_200: #e4e7ec;
+	--neutral_300: #d0d5dd;
+	--neutral_400: #98a2b3;
+	--neutral_500: #667085;
+	--neutral_700: #1f253d;
+	--neutral_900: #182230;
+	--neutral_opacity-black: #00000066;
+
+	// Success
+	--success_100: #e6f9f1;
+	--success_500: #17b26a;
+	--success_700: #067647;
+
+	// Error
+	--error_100: #ffeced;
+	--error_500: #e62e05;
+	--error_700: #bc1b06;
+
+	// Warning
+	--warning_100: #fff7e7;
+	--warning_500: #f79009;
+	--warning_700: #b54708;
+	//----------------------
+
+	// Semantic tokens
+
+	// Text
+	--text-main: var(--neutral_700);
+
+	--text-secondary: #6c728b;
+
+	--text-primary_default: var(--neutral_900);
+	--text-primary_disabled: var(--neutral_400);
+	--text-primary_on-brand: var(--neutral_0);
+
+	--text-secondary_default: var(--neutral_500);
+	--text-secondary_disabled: var(--neutral_300);
+
+	--text-tertiary_default: var(--neutral_400);
+	--text-tertiary_disabled: var(--neutral_300);
+
+	--text-quaternary_default: var(--neutral_300);
+	--text-quaternary_disabled: var(--neutral_200);
+
+	--text-brand_default: var(--brand_600);
+	--text-brand_hover: var(--brand_700);
+	--text-brand_disabled: var(--brand_200);
+
+	--text-invert_default: var(--neutral_0);
+	--text-invert_disabled: var(--neutral_opacity-white);
+
+	--text-error_default: var(--error_500);
+	--text-error_dark: var(--error_700);
+
+	--text-warning_default: var(--warning_500);
+
+	--text-success_default: var(--success_500);
+	--text-success_dark: var(--success_700);
+
+	// Border
+	--border-primary: var(--neutral_300);
+
+	--border-secondary: var(--neutral_200);
+	--border-tertiary: var(--neutral_100);
+
+	--border-brand-secondary: var(--brand_200);
+	--border-brand-tertiary: var(--brand_100);
+
+	--border-brand: var(--brand_500);
+	--border-error: var(--error_500);
+
+	// Foreground
+	--fg-primary_default: var(--neutral_900);
+	--fg-primary_disabled: var(--neutral_400);
+
+	--fg-secondary_default: var(--neutral_500);
+	--fg-secondary_disabled: var(--neutral_300);
+
+	--fg-tertiary_default: var(--neutral_400);
+	--fg-tertiary_disabled: var(--neutral_300);
+
+	--fg-quaternary_default: var(--neutral_300);
+	--fg-quaternary_disabled: var(--neutral_200);
+
+	--fg-quinary_default: var(--neutral_200);
+
+	--fg-senary_default: var(--neutral_100);
+
+	--fg-brand-primary_default: var(--brand_600);
+	--fg-brand-primary_disabled: var(--brand_200);
+
+	--fg-brand-secondary_default: var(--brand_500);
+	--fg-brand-secondary_disabled: var(--brand_200);
+
+	--fg-brand-tertiary_default: var(--brand_200);
+
+	--fg-invert_default: var(--neutral_0);
+	--fg-invert_disabled: var(--neutral_opacity-white);
+
+	--fg-error_default: var(--error_500);
+	--fg-error_dark: var(--error_700);
+
+	--fg-warning_default: var(--warning_500);
+	--fg-warning_dark: var(--warning_700);
+
+	--fg-success_default: var(--success_500);
+	--fg-success_dark: var(--success_700);
+
+	// Background
+
+	--bg-primary_default: var(--neutral_50);
+
+	--bg-secondary_default: var(--neutral_0);
+
+	--bg-tertiary_default: var(--neutral_100);
+
+	--bg-quaternary_default: var(--neutral_200);
+
+	--bg-brand-primary_default: var(--brand_500);
+	--bg-brand-primary_hover: var(--brand_600);
+	--bg-brand-primary_disabled: var(--brand_200);
+
+	--bg-brand-secondary_default: var(--brand_300);
+	--bg-brand-secondary_hover: var(--brand_500);
+	--bg-brand-secondary_disabled: var(--brand_200);
+
+	--bg-brand-tertiary_default: var(--brand_50);
+
+	--bg-dark-opacity: var(--neutral_opacity-black);
+
+	--bg-error_default: var(--error_100);
+
+	--bg-warning_default: var(--warning_100);
+
+	--bg-success_default: var(--success_100);
+	//-----------------------
+	--text-main: #1f253d;
+	--text-secondary: #6c728b;
+	--tui-progress-color: var(--bg-brand-primary_default);
+}

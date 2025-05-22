@@ -1,0 +1,84 @@
+input {
+	height: 28px;
+}
+
+textarea {
+	height: 46px;
+}
+
+input,
+textarea {
+	width: 100%;
+	border-radius: 4px;
+	border: 1px solid var(--border-secondary);
+	outline: none;
+	color: var(--text-primary_default);
+	padding: 5px 6px 5px 8px;
+	box-sizing: border-box;
+	line-height: 18px;
+	font-size: 13px;
+
+	&:hover {
+		border: 1px solid var(--border-primary);
+		transition: 0.3s;
+	}
+
+	&:focus,
+	&:active {
+		border: 1px solid var(--border-brand);
+		transition: 0.3s;
+	}
+
+	&.invalid {
+		transition: 0.3s;
+		border: 1px solid var(--border-error);
+	}
+
+	&.disabled {
+		border: 1px solid var(--input-border_disabled);
+		background-color: var(--bg-tertiary_default);
+		position: none;
+		color: var(--text-primary_disabled);
+	}
+}
+
+.input-field-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+
+	label {
+		color: var(--text-secondary_default);
+		font-size: 13px;
+		line-height: 18px;
+	}
+}
+
+textarea::-webkit-scrollbar {
+	width: 0.75rem;
+	opacity: 0.2;
+}
+
+textarea::-webkit-scrollbar-track {
+	background-color: transparent;
+	opacity: 0.2;
+}
+
+textarea::-webkit-scrollbar-thumb {
+	border-radius: 6.25rem;
+	border: 0.25rem solid transparent;
+	cursor: pointer;
+	pointer-events: auto;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	opacity: 0.2;
+	background-color: var(--text-brand_default);
+	background-clip: content-box;
+	box-sizing: border-box;
+	transition: all var(--tui-duration, 0.3s) ease-in-out;
+	transition-property: width, height;
+	right: 0;
+	width: 0.75rem;
+	min-height: 1.25rem;
+}
