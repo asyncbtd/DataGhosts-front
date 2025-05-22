@@ -1,7 +1,7 @@
-@import '../../styles/colors.scss';
-@import '../../styles/input.scss';
-@import '../../styles/button.scss';
-@import '../../styles/link.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/input.scss';
+@use '../../styles/button.scss';
+@use '../../styles/link.scss';
 
 .register-page {
   min-height: 100vh;

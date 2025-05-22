@@ -1,9 +1,9 @@
-@import "../styles/colors.scss";
-@import "../styles/input.scss";
-@import "../styles/button.scss";
-@import "../styles/table.scss";
-@import "../styles/popup.scss";
-@import "../styles/link.scss";
+@use "../styles/colors.scss";
+@use "../styles/input.scss";
+@use "../styles/button.scss";
+@use "../styles/table.scss";
+@use "../styles/popup.scss";
+@use "../styles/link.scss";
 
 :root {
 	--tui-heading-font: "Roboto";

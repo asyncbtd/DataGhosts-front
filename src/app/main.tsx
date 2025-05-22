@@ -5,6 +5,7 @@ import LoginPage from './login/Login'
 import RegisterPage from './register/Rregister'
 import LocationsPage from './locations/Locations'
 import LocationDetails from './locations/LocationDetails'
+import ChatPage from './chat/Chat'
 import ProtectedRoute from './core/ProtectedRoute'
 import './index.scss'
 
@@ -27,6 +28,14 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           element={
             <ProtectedRoute>
               <LocationDetails />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/chat" 
+          element={
+            <ProtectedRoute>
+              <ChatPage />
             </ProtectedRoute>
           } 
         />

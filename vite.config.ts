@@ -7,10 +7,19 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // Замените на адрес вашего бэкенда
+        target: 'http://192.168.249.52:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/ws-chat': {
+        target: 'http://192.168.249.52:8080',
+        ws: true,
         changeOrigin: true,
         secure: false,
       }
     }
-  }
+  },
+  define: {
+    global: 'globalThis',
+  },
 })
