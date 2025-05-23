@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, type KeyboardEvent } from 'react';
 import { Client, type IMessage } from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
 import Cookies from 'js-cookie';
 import './Chat.scss';
 
@@ -15,7 +14,8 @@ interface ChatMessage {
   token: string;
 }
 
-const WS_BASE_URL = '/ws-chat';
+const WS_BASE_URL = `ws://${window.location.host}/ws-chat`;
+console.log('WebSocket URL:', WS_BASE_URL);
 
 function formatDate(date: Date): string {
   return new Intl.DateTimeFormat('ru-RU', {
@@ -37,69 +37,49 @@ function ChatPage() {
 
   useEffect(() => {
     const client = new Client({
+      brokerURL: WS_BASE_URL,
+      debug: (str) => console.log('STOMP:', str),
+      reconnectDelay: 5000,
+      heartbeatIncoming: 4000,
+      heartbeatOutgoing: 4000,
       webSocketFactory: () => {
-        const socket = new SockJS(WS_BASE_URL);
-        console.log('SockJS created with URL:', WS_BASE_URL);
-        return socket;
+        console.log('Creating WebSocket connection to:', WS_BASE_URL);
+        return new WebSocket(WS_BASE_URL);
       },
       onConnect: () => {
-        console.log('Connected to WebSocket');
+        console.log('WebSocket connected');
         setIsConnected(true);
 
-        // Подписываемся на публичные сообщения
         client.subscribe('/topic/public', (message: IMessage) => {
-          console.log('Received public message:', message.body);
           const receivedMessage: ChatMessageDto = JSON.parse(message.body);
-          setMessages((prevMessages) => [...prevMessages, receivedMessage]);
+          setMessages(prev => [...prev, receivedMessage]);
         });
 
-        // Подписываемся на историю чата
         client.subscribe('/topic/history', (message: IMessage) => {
-          console.log('Received chat history message:', message);
-          console.log('Message headers:', message.headers);
-          console.log('Message body:', message.body);
           try {
             const history: ChatMessageDto[] = JSON.parse(message.body);
-            console.log('Parsed history:', history);
-            if (Array.isArray(history)) {
-              setMessages(history);
-            } else {
-              console.error('History is not an array:', history);
-            }
-          } catch (error) {
-            console.error('Error parsing chat history:', error);
+            setMessages(history);
           } finally {
             setIsLoadingHistory(false);
           }
         });
 
-        // Запрашиваем историю чата
-        console.log('Requesting chat history...');
         client.publish({
           destination: '/app/chat.history',
           body: JSON.stringify({})
         });
       },
-      onStompError: (frame) => {
-        console.error('STOMP error:', frame);
+      onDisconnect: () => {
+        console.log('WebSocket disconnected');
         setIsConnected(false);
-        setIsLoadingHistory(false);
+      },
+      onStompError: (frame) => {
+        console.error('STOMP error:', frame.headers.message);
+        setIsConnected(false);
       },
       onWebSocketError: (event) => {
         console.error('WebSocket error:', event);
         setIsConnected(false);
-        setIsLoadingHistory(false);
-      },
-      onDisconnect: () => {
-        console.log('Disconnected from WebSocket');
-        setIsConnected(false);
-        setIsLoadingHistory(false);
-      },
-      reconnectDelay: 5000,
-      heartbeatIncoming: 4000,
-      heartbeatOutgoing: 4000,
-      debug: (str) => {
-        console.log('STOMP Debug:', str);
       }
     });
 
@@ -107,9 +87,7 @@ function ChatPage() {
     setStompClient(client);
 
     return () => {
-      if (client.active) {
-        client.deactivate();
-      }
+      client.deactivate().catch(console.error);
     };
   }, []);
 
@@ -163,6 +141,8 @@ function ChatPage() {
       <div className="chat-page__input">
         <input
           type="text"
+          id="chat-message-input"
+          name="chat-message"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
           onKeyDown={handleInputKeyDown}
