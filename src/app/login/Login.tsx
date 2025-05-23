@@ -29,7 +29,7 @@ function LoginPage() {
           secure: false,
           sameSite: 'strict'
         });
-        navigate('/locations');
+        navigate('/chat');
       } else if (response.status === 400) {
         const errorData = await response.json();
         setError(`Ошибка: ${JSON.stringify(errorData)}`);

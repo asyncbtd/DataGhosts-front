@@ -3,8 +3,9 @@
   flex-direction: column;
   padding: 20px;
   background-color: #f0f0f0;
-  height: 100vh;
+  height: calc(100vh - 80px);
   box-sizing: border-box;
+  margin-bottom: 80px;
 
   &__status {
     text-align: center;
@@ -55,6 +56,10 @@
   &__input {
     display: flex;
     gap: 10px;
+    position: sticky;
+    bottom: 0;
+    background-color: #f0f0f0;
+    padding: 10px 0;
 
     input {
       flex: 1;

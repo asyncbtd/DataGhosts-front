@@ -6,7 +6,9 @@ import RegisterPage from './register/Rregister'
 import LocationsPage from './locations/Locations'
 import LocationDetails from './locations/LocationDetails'
 import ChatPage from './chat/Chat'
+import SettingsPage from './settings/Settings'
 import ProtectedRoute from './core/ProtectedRoute'
+import Layout from './navigation/Layout'
 import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -19,7 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           path="/locations" 
           element={
             <ProtectedRoute>
-              <LocationsPage />
+              <Layout>
+                <LocationsPage />
+              </Layout>
             </ProtectedRoute>
           } 
         />
@@ -27,7 +31,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           path="/locations/:id" 
           element={
             <ProtectedRoute>
-              <LocationDetails />
+              <Layout>
+                <LocationDetails />
+              </Layout>
             </ProtectedRoute>
           } 
         />
@@ -35,7 +41,19 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           path="/chat" 
           element={
             <ProtectedRoute>
-              <ChatPage />
+              <Layout>
+                <ChatPage />
+              </Layout>
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings" 
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <SettingsPage />
+              </Layout>
             </ProtectedRoute>
           } 
         />
